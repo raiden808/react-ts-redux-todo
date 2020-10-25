@@ -4,13 +4,6 @@ import { createReducer } from 'typesafe-actions';
 
 import { loadTodosAsync, addTodo, removeTodo } from './actions';
 
-export const isLoadingTodos = createReducer(false as boolean)
-  .handleAction([loadTodosAsync.request], (state, action) => true)
-  .handleAction(
-    [loadTodosAsync.success, loadTodosAsync.failure],
-    (state, action) => false
-  );
-
 export const todos = createReducer([
   {
     id: '0',
@@ -24,7 +17,6 @@ export const todos = createReducer([
   );
 
 const todosReducer = combineReducers({
-  isLoadingTodos,
   todos,
 });
 
